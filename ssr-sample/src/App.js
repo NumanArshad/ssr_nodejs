@@ -1,21 +1,22 @@
 // import React from 'react';
 // import logo from './logo.svg';
 // import './App.css';
-import React,{useEffect} from 'react'
+import React, { useEffect } from 'react'
+import {HelmetCmp} from './HelmetCmp'
 function App() {
-  const [count,setCount]=React.useState(0)
-  const [data,setdata]=React.useState([])
- useEffect(()=>{
-   alert("here called")
-  //  const fetchFnc=async()=>{
-  //   const hitApi=await fetch('https://api.github.com/users')
-  //  const js=await hitApi.json()
-  //  console.log(js)
-  //   setdata(js)
-  //  }
-  //  fetchFnc()
+  const [count, setCount] = React.useState(0)
+  const [data, setdata] = React.useState([])
+  useEffect(() => {
+    // alert("here called")
+    const fetchFnc = async () => {
+      const hitApi = await fetch('https://api.github.com/users')
+      const js = await hitApi.json()
+      console.log(js)
+      setdata(js)
+    }
+    fetchFnc()
 
- },[])
+  }, [])
 
   return (
     // <div className="App">
@@ -35,11 +36,11 @@ function App() {
     //   </header>
     // </div>
     <>
-{count}
-
-<button onClick={()=>setCount(count+1)}>incrment</button>
-<button onClick={()=>setCount(count-1)}>deccrment</button>
-{data &&  JSON.stringify(data)}
+    <HelmetCmp />
+      {count}
+      <button onClick={() => setCount(count + 1)}>incrment</button>
+      <button onClick={() => setCount(count - 1)}>decrement</button>
+      {data && JSON.stringify(data)}
     </>
   );
 }
