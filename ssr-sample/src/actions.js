@@ -1,0 +1,1 @@
+export const isAuthenticated="USER IS LOGIN"
