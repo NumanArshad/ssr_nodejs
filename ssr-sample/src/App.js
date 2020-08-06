@@ -2,9 +2,13 @@
 // import logo from './logo.svg';
 // import './App.css';
 import React,{useEffect} from 'react'
+import {useSelector,useDispatch} from 'react-redux'
+import {isAuthenticated} from './actions'
 function App() {
   const [count,setCount]=React.useState(0)
   const [data,setdata]=React.useState([])
+  const {post:{lst}}=useSelector(state=>state)
+  const dispatch=useDispatch()
  useEffect(()=>{
    alert("here called")
   //  const fetchFnc=async()=>{
@@ -39,7 +43,9 @@ function App() {
 
 <button onClick={()=>setCount(count+1)}>incrment</button>
 <button onClick={()=>setCount(count-1)}>deccrment</button>
-{data &&  JSON.stringify(data)}
+<button onClick={()=>dispatch({type:isAuthenticated})}>fetch list</button>
+
+{JSON.stringify(lst)}
     </>
   );
 }
